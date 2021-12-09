@@ -20,7 +20,22 @@ galleryEll.style.justifyContent = "space-around";
 
 
 
-const galleryListItems = images.map(image => `<li list-style-type = "none"><img src = "${image.url}" alt = "${image.alt}" width = "400" height = "200"></li>`).join("");
 
-galleryEll.innerHTML = galleryListItems;
+// const galleryListItems = images.map(image => `<li><img src = "${image.url}" alt = "${image.alt}" width = "400" height = "200"></li>`).join("");
+
+
+// galleryEll.insertAdjacentHTML("beforeend", galleryListItems);
+
+
+
+
+const makeGalleryItems = imagesData => {
+  return imagesData.map(image => `<li><img src = "${image.url}" alt = "${image.alt}" width = "400" height = "200"></li>`).join("");
+
+};
+const makeGallery = (imagesData, callback) => {
+  galleryEll.insertAdjacentHTML("beforeend", callback(imagesData));
+};
+
+makeGallery(images, makeGalleryItems);
 
