@@ -10,12 +10,12 @@ const boxesDivEll = document.querySelector('#boxes');
 createButtonEll.addEventListener('click', insertBoxesOnButtonClick);
 destroyButtonEll.addEventListener('click', destroyBoxesOnButtonClick);
 
-function CreateBoxesOnButtonClick() {
-  const numberOfBoxes = Number(inputEll.value);
-  console.log(numberOfBoxes);
+function CreateBoxesOnButtonClick(amount) {
+  
+  
   const boxElements = [];
 
-  for (let i = 0; i < numberOfBoxes; i += 1) {
+  for (let i = 0; i < amount; i += 1) {
     const boxWidth = 30 + 10 * i;
     const boxHeight = 30 + 10 * i;
     const boxBackground = getRandomHexColor();
@@ -35,7 +35,7 @@ function CreateBoxesOnButtonClick() {
 };
 
 function insertBoxesOnButtonClick() {
-  const boxes = CreateBoxesOnButtonClick();
+  const boxes = CreateBoxesOnButtonClick(Number(inputEll.value));
   boxesDivEll.append(...boxes);
 
  };
